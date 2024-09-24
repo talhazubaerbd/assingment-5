@@ -8,6 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
     <style>
         .sticky {
             position: fixed;
@@ -29,9 +30,7 @@
                 <h2>5500</h2>
             </div>
         </div>
-    </header>
-    <main>
-        <div class="flex gap-3 justify-center mt-5">
+        <div class="flex gap-3 justify-center mt-5 blur">
             <button class="btn btn-primary">
                 Donation
             </button>
@@ -39,6 +38,9 @@
                 History
             </button>
         </div>
+    </header>
+    <main>
+
         <!-- container -->
         <div class="flex flex-row gap-4 container mx-auto mt-10 border-2 rounded-xl p-5 w-max my-5">
             <div class="shrink-0">
@@ -60,12 +62,13 @@
                             <path
                                 d="M320 96L192 96 144.6 24.9C137.5 14.2 145.1 0 157.9 0L354.1 0c12.8 0 20.4 14.2 13.3 24.9L320 96zM192 128l128 0c3.8 2.5 8.1 5.3 13 8.4C389.7 172.7 512 250.9 512 416c0 53-43 96-96 96L96 512c-53 0-96-43-96-96C0 250.9 122.3 172.7 179 136.4c0 0 0 0 0 0s0 0 0 0c4.8-3.1 9.2-5.9 13-8.4zm84 88c0-11-9-20-20-20s-20 9-20 20l0 14c-7.6 1.7-15.2 4.4-22.2 8.5c-13.9 8.3-25.9 22.8-25.8 43.9c.1 20.3 12 33.1 24.7 40.7c11 6.6 24.7 10.8 35.6 14l1.7 .5c12.6 3.8 21.8 6.8 28 10.7c5.1 3.2 5.8 5.4 5.9 8.2c.1 5-1.8 8-5.9 10.5c-5 3.1-12.9 5-21.4 4.7c-11.1-.4-21.5-3.9-35.1-8.5c-2.3-.8-4.7-1.6-7.2-2.4c-10.5-3.5-21.8 2.2-25.3 12.6s2.2 21.8 12.6 25.3c1.9 .6 4 1.3 6.1 2.1c0 0 0 0 0 0s0 0 0 0c8.3 2.9 17.9 6.2 28.2 8.4l0 14.6c0 11 9 20 20 20s20-9 20-20l0-13.8c8-1.7 16-4.5 23.2-9c14.3-8.9 25.1-24.1 24.8-45c-.3-20.3-11.7-33.4-24.6-41.6c-11.5-7.2-25.9-11.6-37.1-15c0 0 0 0 0 0l-.7-.2c-12.8-3.9-21.9-6.7-28.3-10.5c-5.2-3.1-5.3-4.9-5.3-6.7c0-3.7 1.4-6.5 6.2-9.3c5.4-3.2 13.6-5.1 21.5-5c9.6 .1 20.2 2.2 31.2 5.2c10.7 2.8 21.6-3.5 24.5-14.2s-3.5-21.6-14.2-24.5c-6.5-1.7-13.7-3.4-21.1-4.7l0-13.9z" />
                         </svg>
-                        <input type="text" class="grow" placeholder="Taka daw" />
+                        <input id="amount1" type="text" class="grow" placeholder="Enter Amount" />
                     </label>
-                    <input type="submit" value="Debo" class="btn btn-primary w-full">
+                    <input id="donate1" type="submit" value="Donate" class="btn btn-primary w-full">
                 </form>
             </div>
         </div>
+        <!-- container2 -->
         <div class="flex flex-row gap-4 container mx-auto mt-10 border-2 rounded-xl p-5 w-max">
             <div class="shrink-0">
                 <img src="image/feni.png">
@@ -89,12 +92,13 @@
                             <path
                                 d="M320 96L192 96 144.6 24.9C137.5 14.2 145.1 0 157.9 0L354.1 0c12.8 0 20.4 14.2 13.3 24.9L320 96zM192 128l128 0c3.8 2.5 8.1 5.3 13 8.4C389.7 172.7 512 250.9 512 416c0 53-43 96-96 96L96 512c-53 0-96-43-96-96C0 250.9 122.3 172.7 179 136.4c0 0 0 0 0 0s0 0 0 0c4.8-3.1 9.2-5.9 13-8.4zm84 88c0-11-9-20-20-20s-20 9-20 20l0 14c-7.6 1.7-15.2 4.4-22.2 8.5c-13.9 8.3-25.9 22.8-25.8 43.9c.1 20.3 12 33.1 24.7 40.7c11 6.6 24.7 10.8 35.6 14l1.7 .5c12.6 3.8 21.8 6.8 28 10.7c5.1 3.2 5.8 5.4 5.9 8.2c.1 5-1.8 8-5.9 10.5c-5 3.1-12.9 5-21.4 4.7c-11.1-.4-21.5-3.9-35.1-8.5c-2.3-.8-4.7-1.6-7.2-2.4c-10.5-3.5-21.8 2.2-25.3 12.6s2.2 21.8 12.6 25.3c1.9 .6 4 1.3 6.1 2.1c0 0 0 0 0 0s0 0 0 0c8.3 2.9 17.9 6.2 28.2 8.4l0 14.6c0 11 9 20 20 20s20-9 20-20l0-13.8c8-1.7 16-4.5 23.2-9c14.3-8.9 25.1-24.1 24.8-45c-.3-20.3-11.7-33.4-24.6-41.6c-11.5-7.2-25.9-11.6-37.1-15c0 0 0 0 0 0l-.7-.2c-12.8-3.9-21.9-6.7-28.3-10.5c-5.2-3.1-5.3-4.9-5.3-6.7c0-3.7 1.4-6.5 6.2-9.3c5.4-3.2 13.6-5.1 21.5-5c9.6 .1 20.2 2.2 31.2 5.2c10.7 2.8 21.6-3.5 24.5-14.2s-3.5-21.6-14.2-24.5c-6.5-1.7-13.7-3.4-21.1-4.7l0-13.9z" />
                         </svg>
-                        <input type="text" class="grow" placeholder="Taka daw" />
+                        <input id="amount2" type="text" class="grow" placeholder="Enter Amount" />
                     </label>
-                    <input type="submit" value="Debo" class="btn btn-primary w-full">
+                    <input id="donate2" type="submit" value="Donate" class="btn btn-primary w-full">
                 </form>
             </div>
         </div>
+        <!-- container3 -->
         <div class="flex flex-row gap-4 container mx-auto mt-10 border-2 rounded-xl p-5 w-max">
             <div class="shrink-0">
                 <img src="image/quota-protest.png">
@@ -105,7 +109,8 @@
                     <p id="takakaka">100 BDT</p>
                 </div>
                 <h1 class="font-bold text-2xl my-2" id="ytcfftdycyt">Aid for Students</h1>
-                <p class="text-xl my-2">The recent Quota movement has resulted in numerous injuries and <br> significant hardship for many
+                <p class="text-xl my-2">The recent Quota movement has resulted in numerous injuries and <br> significant
+                    hardship for many
                     individuals. Your support is crucial in <br> providing medical assistance, rehabilitation, and
                     necessary supplies <br> to those affected. By contributing, you help ensure that injured <br>
                     individuals receive the care and support they need during this <br> challenging time. Every donation
@@ -117,13 +122,23 @@
                             <path
                                 d="M320 96L192 96 144.6 24.9C137.5 14.2 145.1 0 157.9 0L354.1 0c12.8 0 20.4 14.2 13.3 24.9L320 96zM192 128l128 0c3.8 2.5 8.1 5.3 13 8.4C389.7 172.7 512 250.9 512 416c0 53-43 96-96 96L96 512c-53 0-96-43-96-96C0 250.9 122.3 172.7 179 136.4c0 0 0 0 0 0s0 0 0 0c4.8-3.1 9.2-5.9 13-8.4zm84 88c0-11-9-20-20-20s-20 9-20 20l0 14c-7.6 1.7-15.2 4.4-22.2 8.5c-13.9 8.3-25.9 22.8-25.8 43.9c.1 20.3 12 33.1 24.7 40.7c11 6.6 24.7 10.8 35.6 14l1.7 .5c12.6 3.8 21.8 6.8 28 10.7c5.1 3.2 5.8 5.4 5.9 8.2c.1 5-1.8 8-5.9 10.5c-5 3.1-12.9 5-21.4 4.7c-11.1-.4-21.5-3.9-35.1-8.5c-2.3-.8-4.7-1.6-7.2-2.4c-10.5-3.5-21.8 2.2-25.3 12.6s2.2 21.8 12.6 25.3c1.9 .6 4 1.3 6.1 2.1c0 0 0 0 0 0s0 0 0 0c8.3 2.9 17.9 6.2 28.2 8.4l0 14.6c0 11 9 20 20 20s20-9 20-20l0-13.8c8-1.7 16-4.5 23.2-9c14.3-8.9 25.1-24.1 24.8-45c-.3-20.3-11.7-33.4-24.6-41.6c-11.5-7.2-25.9-11.6-37.1-15c0 0 0 0 0 0l-.7-.2c-12.8-3.9-21.9-6.7-28.3-10.5c-5.2-3.1-5.3-4.9-5.3-6.7c0-3.7 1.4-6.5 6.2-9.3c5.4-3.2 13.6-5.1 21.5-5c9.6 .1 20.2 2.2 31.2 5.2c10.7 2.8 21.6-3.5 24.5-14.2s-3.5-21.6-14.2-24.5c-6.5-1.7-13.7-3.4-21.1-4.7l0-13.9z" />
                         </svg>
-                        <input type="text" class="grow" placeholder="Taka daw" />
+                        <input id="amount3" type="text" class="grow" placeholder="Enter Amount" />
                     </label>
-                    <input type="submit" value="Debo" class="btn btn-primary w-full">
+                    <input id="donate3" type="submit" value="Donate" class="btn btn-primary w-full">
                 </form>
             </div>
         </div>
+        <div class="popup">
+            <h1 class="font-bold text-5xl my-3 mx-5">Congrates!</h1>
+            <img src="image/coin.png">
+            <p class="text-xl">You Have Donate For Humankind</p>
+            <h3 class="font-bold text-3xl">Successlly</h3>
+            <button class="btn btn-primary p-2 my-3">Close Info</button>
+        </div>
     </main>
+    <footer class="h- w-full bg-rose-100 ">
+        <p class="text-center">All Resrve By Talha</p>
+    </footer>
     <script src="script.js"></script>
 </body>
 
