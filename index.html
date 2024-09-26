@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Donate Bangladesh</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
     <style>
         .input-error {
             border-color: red;
@@ -14,14 +15,19 @@
         .modal {
             display: none;
         }
+
+        .blur-effect {
+            backdrop-filter: blur(5px);
+            /* Adjust the blur radius as needed */
+        }
     </style>
 </head>
 
 <body class="bg-gray-50">
 
     <!-- Navbar Section (Sticky) -->
-    <nav class="blur-effect py-4 shadow-md sticky top-0 z-10 fixed left-0 right-0  ">
-        <div class=" mx-auto flex justify-between items-center bg-[#f9f7f3] p-2 mt-">
+    <nav class="blur-effect pb-5 shadow-md sticky top-0 z-10 fixed left-0 right-0  ">
+        <div class=" mx-auto flex justify-between items-center bg-[#f9f7f3] p-2">
             <div class="flex items-center space-x-4">
                 <button class="bg-green-500 text-black font-bold py-2 px-4 rounded-lg">Blog</button>
             </div>
@@ -156,7 +162,7 @@
         </div>
     </div>
     <div id="history_container" class="hidden p-4">
-        
+
     </div>
     <script src="script.js"></script>
 </body>
