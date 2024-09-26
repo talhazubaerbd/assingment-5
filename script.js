@@ -8,7 +8,7 @@ function handleDonation(donationId) {
 
   // Simple validation to ensure the donation amount is a number and is not negative
   if (isNaN(amount) || amount === "") {
-    alert("Please enter a valid donation amount.");
+    // alert("Please enter a valid donation amount.");
     inputElement.classList.add("input-error");
   } else if (amount <= 0) {
     // If the amount is zero or negative
@@ -50,10 +50,10 @@ window.onload = function () {
   modal.style.display = "none"; // Ensure the modal is hidden when the page loads
 };
 
-var donation_btn = document.getElementById("donation_btn");
-var history_btn = document.getElementById("history_btn");
-var donation_container = document.getElementById("donation_container");
-var history_container = document.getElementById("history_container");
+let donation_btn = document.getElementById("donation_btn");
+let history_btn = document.getElementById("history_btn");
+let donation_container = document.getElementById("donation_container");
+let history_container = document.getElementById("history_container");
 
 history_btn.addEventListener("click", function () {
   donation_btn.classList.remove("bg-green-500");
@@ -141,4 +141,70 @@ window.addEventListener("scroll", () => {
       .querySelectorAll("div")
       .forEach((div) => div.classList.remove("blur-effect"));
   }
+});
+
+// next
+
+let transactions = []; // Array to store transactions
+
+// Donation button logic
+document.querySelectorAll(".donate-btn").forEach((button) => {
+  button.addEventListener("click", function () {
+    const donationAmount = document.getElementById(
+      `donation-amount-${this.dataset.id}`
+    ).value;
+    if (donationAmount && !isNaN(donationAmount)) {
+      const donationDetails = {
+        amount: donationAmount,
+        fundId: this.dataset.id,
+        time: new Date().toLocaleString("en-US", { timeZone: "Asia/Dhaka" }), // Convert time to Bangladesh Standard Time
+      };
+
+      // Store the transaction
+      transactions.push(donationDetails);
+      localStorage.setItem("transactions", JSON.stringify(transactions));
+
+      // Show success modal
+      document.getElementById("success-modal").style.display = "flex";
+    } else {
+      alert("Please enter a valid donation amount.");
+    }
+  });
+});
+
+// Close success modal
+document.getElementById("close-modal").addEventListener("click", function () {
+  document.getElementById("success-modal").style.display = "none";
+});
+
+// Show history on clicking History button
+document.getElementById("history_btn").addEventListener("click", function () {
+  const historyContainer = document.getElementById("history_container");
+  historyContainer.innerHTML = ""; // Clear previous history
+
+  // Get stored transactions from localStorage
+  const storedTransactions =
+    JSON.parse(localStorage.getItem("transactions")) || [];
+
+  if (storedTransactions.length === 0) {
+    historyContainer.innerHTML =
+      '<p class="text-center text-gray-600">No donation history available.</p>';
+  } else {
+    const historyHTML = storedTransactions
+      .map(
+        (transaction) => `
+            <div class="bg-white shadow-md rounded-lg p-4 mb-4 container mx-auto">
+                <div class="items-center"><h3 class="text-xl font-semibold">Donation to Fund ${transaction.fundId}</h3>
+                <p class="text-gray-600">Amount: ${transaction.amount} BDT</p>
+                <p class="text-gray-600">Time: ${transaction.time} (BST)</p></div>
+            </div>
+        `
+      )
+      .join("");
+
+    historyContainer.innerHTML = historyHTML;
+  }
+
+  historyContainer.classList.remove("hidden"); // Show history
+  document.getElementById("donation_container").classList.add("hidden"); // Hide donation cards
 });
